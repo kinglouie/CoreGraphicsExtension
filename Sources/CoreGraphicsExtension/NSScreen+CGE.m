@@ -35,7 +35,13 @@ static NSString * const NSScreenNumberKey = @"NSScreenNumber";
 - (NSString *) identifier {
 
     id uuid = CFBridgingRelease(CGDisplayCreateUUIDFromDisplayID([self.deviceDescription[NSScreenNumberKey] unsignedIntValue]));
-    return CFBridgingRelease(CFUUIDCreateString(NULL, (__bridge CFUUIDRef) uuid));
+    if (uuid) {
+      return CFBridgingRelease(CFUUIDCreateString(NULL, (__bridge CFUUIDRef) uuid));
+    }
+    else {
+      return @"";
+    }
+
 }
 
 #pragma mark - Spaces

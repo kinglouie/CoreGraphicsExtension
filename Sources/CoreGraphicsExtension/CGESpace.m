@@ -153,6 +153,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 }
 
 - (NSUInteger) number {
+
     NSUInteger number = 0;
     for (NSScreen *scr in [NSScreen screens]) {
         if([scr.spaces containsObject:self]) {
