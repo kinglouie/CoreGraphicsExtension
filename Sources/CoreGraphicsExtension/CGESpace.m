@@ -198,7 +198,10 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
         NSArray<NSNumber *> *identifiers = [spacesInfo[CGSSpacesKey] valueForKey:CGSSpaceIDKey];
 
         if ([identifiers containsObject:@(self.identifier)]) {
-            return @[ [NSScreen screenForIdentifier:screenIdentifier] ];
+            NSScreen *scr = [NSScreen screenForIdentifier:screenIdentifier];
+            if (scr != nil) {
+                return @[ [NSScreen screenForIdentifier:screenIdentifier] ];
+            }
         }
     }
 
