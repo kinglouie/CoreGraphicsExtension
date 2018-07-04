@@ -4,6 +4,8 @@
 
 @implementation NSScreen (CGE)
 
+extern CFUUIDRef CGDisplayCreateUUIDFromDisplayID(uint32_t displayID);
+
 static NSString * const NSScreenNumberKey = @"NSScreenNumber";
 
 #pragma mark - Screens
